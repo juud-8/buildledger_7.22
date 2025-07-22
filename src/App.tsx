@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Outlet } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="dark bg-graphite text-navy min-h-screen flex">
+      <header className="bg-navy p-4 fixed top-0 left-0 right-0 z-10">
+        <h1 className="text-orange text-3xl font-bold">BuildLedger</h1>
+      </header>
+      <aside className="w-64 bg-graphite p-4 mt-16 fixed left-0 h-full overflow-y-auto">
+        <nav className="space-y-4">
+          <Button variant="outline" className="w-full text-left bg-orange text-navy p-6 text-lg rounded-lg">
+            Invoices
+          </Button>
+          <Button variant="outline" className="w-full text-left bg-orange text-navy p-6 text-lg rounded-lg">
+            Dashboard
+          </Button>
+          <Button variant="outline" className="w-full text-left bg-orange text-navy p-6 text-lg rounded-lg">
+            Customers
+          </Button>
+          <Button variant="outline" className="w-full text-left bg-orange text-navy p-6 text-lg rounded-lg">
+            Expenses
+          </Button>
+          <Button variant="outline" className="w-full text-left bg-orange text-navy p-6 text-lg rounded-lg">
+            AI Assistant
+          </Button>
+        </nav>
+      </aside>
+      <main className="flex-1 p-4 mt-16 ml-64">
+        <Outlet />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
